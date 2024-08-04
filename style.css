@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+/* Custom CSS Reset
+based on Josh Comeau's CSS Reset: https://www.joshwcomeau.com/css/custom-css-reset/
+and Andy Bell's Modern CSS Reset: https://piccalil.li/blog/a-more-modern-css-reset/ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+/* -webkit... only for Safari and MacOS with retina display */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* makes sure to use same font-family, font-size and font-weight for all elements */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ------------------------------------------ */
+/* Main Styles */
+/* ------------------------------------------ */
+
+:root {
+  --clr-red: hsl(0, 78%, 62%);
+  --clr-cyan: hsl(180, 62%, 55%);
+  --clr-orange: hsl(34, 97%, 64%);
+  --clr-blue: hsl(212, 86%, 64%);
+
+  --f-clr-very-dark-blue: hsl(234, 12%, 34%);
+  --f-clr-grayish-blue: hsl(229, 6%, 66%);
+  --f-clr-very-light-gray: hsl(0, 0%, 98%);
+
+  --f-size: calc(15 / 16 * 1rem);
+  --f-w-200: 200;
+  --f-w-400: 400;
+  --f-w-600: 600;
+}
+
+body {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 3rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--f-clr-grayish-blue);
+  font-weight: var(--f-w-400);
+  font-size: clamp(0.938rem, 1vw + 0.7rem, 2rem);
+  padding-inline: 2rem;
+  padding-top: 5rem;
+}
+
+header {
+  text-align: center;
+}
+
+.overline {
+  font-size: 1.65em;
+  font-weight: var(--f-w-200);
+  margin-block-end: 0.25rem;
+}
+
+.title {
+  font-size: 1.65em;
+  color: var(--f-clr-very-dark-blue);
+  font-weight: var(--f-w-600);
+  margin-block-end: 1.25rem;
+}
+
+.subtitle {
+  font-size: 1em;
+  font-weight: var(--f-w-400);
+  margin-block-end: 2em;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  gap: 2em;
+}
+
+.card-container {
+  position: relative;
+  padding-inline: 2em;
+  padding-block: 2em;
+  box-shadow: 1px 1px 20px var(--f-clr-grayish-blue);
+  border-radius: 0.5em;
+}
+
+.card-title {
+  color: var(--f-clr-very-dark-blue);
+  font-size: 1.35em;
+  font-weight: var(--f-w-600);
+  margin-block-end: 0.5em;
+}
+
+.card-text {
+  margin-bottom: 100px;
+  font-size: .95em;
+line-height: 2;
+}
+
+.teal {
+  border-top: 5px solid var(--clr-cyan);
+}
+
+.teal::after,
+.red::after,
+.orange::after,
+.blue::after {
+  display: block;
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.teal::after {
+  content: url(./images/icon-supervisor.svg);
+}
+
+.red {
+  border-top: 5px solid var(--clr-red);
+}
+
+.red::after {
+  content: url(./images/icon-team-builder.svg);
+}
+
+.orange {
+  border-top: 5px solid var(--clr-orange);
+}
+
+.orange::after {
+  content: url(./images/icon-karma.svg);
+}
+
+.blue {
+  border-top: 5px solid var(--clr-blue);
+}
+
+.blue::after {
+  content: url(./images/icon-calculator.svg);
+}
+
+@media (min-width: 60rem) {
+  body {
+    padding-inline: 4rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    max-inline-size: 55ch;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+  }
+
+  .card-container {
+    font-size: 1.2rem;
+  }
+
+  .col1 {
+    grid-column-start: 1;
+    grid-row: 1 / 3;
+  }
+
+  .col3 {
+    grid-column-start: 3;
+    grid-row: 1 / 3;
+  }
+}
